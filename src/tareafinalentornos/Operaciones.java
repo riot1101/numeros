@@ -16,6 +16,11 @@ public class Operaciones {
      * @param a
      * @param b
      * @return
+     * no pasa test java.lang.ArrayIndexOutOfBoundsException
+     * da una matriz de arrays negativa, no pasa test
+     * 
+     * 
+     * 
      */
     public int[] rango (int a, int b){
 		int[] nums = new int[b-a];
@@ -43,6 +48,7 @@ public class Operaciones {
      *
      * @param a
      * @return
+     * PASA TEST, ES CORRECTO
      */
     public boolean isPar(int a){
 		if(a%2==0){
@@ -55,6 +61,7 @@ public class Operaciones {
      *
      * @param nums
      * @return
+     * 
      */
     public int[] extraerPositivos(int []nums){
 		
