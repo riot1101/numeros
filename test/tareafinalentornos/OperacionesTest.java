@@ -40,17 +40,23 @@ public class OperacionesTest {
 
     /**
      * Test of rango method, of class Operaciones.
+     * no pasa test java.lang.ArrayIndexOutOfBoundsException
      */
     @Test
     public void testRango() {
-        Operaciones instance = new Operaciones();
-        int[] expResult = null;
+      Operaciones instance = new Operaciones();
+        int a = 5;
+        int b = 9;
+
         int[] result = instance.rango(a, b);
         int[] expResult = {5, 6, 7, 8, 9};
         assertArrayEquals(expResult, result);
 
     }
-
+/**
+ * da una matriz de arrays negativa, no pasa test
+ * 
+ */
     @Test
     public void testRango2() {
         Operaciones instance = new Operaciones();
@@ -70,9 +76,9 @@ public class OperacionesTest {
     public void testSumRango() {
 
         int a = 1;
-        int b = 3;
+        int b = 2;
         Operaciones instance = new Operaciones();
-        int expResult = 6;
+        int expResult = 3;
         int result = instance.sumRango(a, b);
         assertEquals(expResult, result);
        
@@ -80,6 +86,7 @@ public class OperacionesTest {
 
     /**
      * Test of isPar method, of class Operaciones.
+     *Pasa test, es correcto
      */
     @Test
     public void testIsPar() {
@@ -95,8 +102,10 @@ public class OperacionesTest {
 
     /**
      * Test of extraerPositivos method, of class Operaciones.
+     * debe ser NullPointerException
+     * 
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testExtraerPositivos(){
        Operaciones instance = new Operaciones();
 
@@ -105,7 +114,10 @@ public class OperacionesTest {
          instance.extraerPositivos(nums);
         
     }
-    
+    /**
+ *
+ * Pasa Test
+ */
    @Test 
    public void testExtraerPositivos2(){
        Operaciones instance = new Operaciones();
