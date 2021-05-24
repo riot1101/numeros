@@ -11,28 +11,29 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.lang.IllegalArgumentException;
 
 /**
  *
  * @author CES
  */
 public class OperacionesTest {
-    
+
     public OperacionesTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -42,15 +43,24 @@ public class OperacionesTest {
      */
     @Test
     public void testRango() {
-        System.out.println("rango");
-        int a = 0;
-        int b = 0;
         Operaciones instance = new Operaciones();
         int[] expResult = null;
         int[] result = instance.rango(a, b);
+        int[] expResult = {5, 6, 7, 8, 9};
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+    }
+
+    @Test
+    public void testRango2() {
+        Operaciones instance = new Operaciones();
+        int a = 9;
+        int b = 5;
+
+        int[] result = instance.rango(a, b);
+        int[] expResult = {5, 6, 7, 8, 9};
+        assertArrayEquals(expResult, result);
+
     }
 
     /**
@@ -58,15 +68,14 @@ public class OperacionesTest {
      */
     @Test
     public void testSumRango() {
-        System.out.println("sumRango");
-        int a = 0;
-        int b = 0;
+
+        int a = 1;
+        int b = 3;
         Operaciones instance = new Operaciones();
-        int expResult = 0;
+        int expResult = 6;
         int result = instance.sumRango(a, b);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -74,29 +83,42 @@ public class OperacionesTest {
      */
     @Test
     public void testIsPar() {
-        System.out.println("isPar");
-        int a = 0;
         Operaciones instance = new Operaciones();
-        boolean expResult = false;
+
+        int a = 2;
         boolean result = instance.isPar(a);
+        boolean expResult = true;
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of extraerPositivos method, of class Operaciones.
      */
-    @Test
-    public void testExtraerPositivos() {
-        System.out.println("extraerPositivos");
-        int[] nums = null;
-        Operaciones instance = new Operaciones();
-        int[] expResult = null;
-        int[] result = instance.extraerPositivos(nums);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test(expected = IllegalArgumentException.class)
+    public void testExtraerPositivos(){
+       Operaciones instance = new Operaciones();
+
+        int[] nums =null;
+ 
+         instance.extraerPositivos(nums);
+        
     }
     
+   @Test 
+   public void testExtraerPositivos2(){
+       Operaciones instance = new Operaciones();
+
+        int[] nums ={-1,2,3};
+        int [] expResult = {2,3};
+        int [] result = instance.extraerPositivos(nums);
+        assertArrayEquals(expResult,result);
+ 
+        
+        
+    }
+   
+   
+
 }
